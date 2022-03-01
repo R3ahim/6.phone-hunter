@@ -19,7 +19,10 @@ fetch(url)
 const displaySearchResult = collector =>{
     const searchresult = document.getElementById('search-result');
     searchresult.textContent = '';
-    // console.log(collector);
+    // console.log(collector); 
+  
+
+  
    collector.data.forEach(info =>{
     //    console.log(info);
       const n =JSON.stringify(info.slug);
@@ -41,8 +44,9 @@ const displaySearchResult = collector =>{
      
        `
        searchresult.appendChild(div)
+     
    })
-
+ 
 }
 
 // btn to search
@@ -61,18 +65,25 @@ const loadPhoneDeatails = phoneId =>{
 
    const loadDisplayDetails =(detals) =>{
     //    console.log(detals.image,detals.phone_name,detals.brand);
-    console.log(detals);
+    console.log(detals.length);
+
     const searchDetails = document.getElementById('search-details');
     searchDetails.textContent =''
     const div = document.createElement('div');
     div.classList.add('card');
-    div.innerHTML =  `
-    <img class="w-100" src="${detals.image}" class="card-img-top" alt="...">
-    <div class="card-body">
-    <h3 class="card-title">${detals.name}</h3>
-      <p class="card-text">${detals.releaseDate}</p>
-    </div>
-    ` ;
-    searchDetails.appendChild(div)
+
+
+      div.innerHTML =  `
+      <div class="card w-75 mx-auto" > 
+      <img class="w-100 h-75" src="${detals.image}" class="card-img-top" alt="...">
+      <div class="card-body">
+      <h3 class="card-title">${detals.name}</h3>
+        <p class="card-text">${detals.releaseDate}</p>
+      </div>
+      </div>
+      ` 
+      searchDetails.appendChild(div);
+   
 
    }
+   
