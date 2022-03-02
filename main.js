@@ -15,14 +15,23 @@ fetch(url)
 .then(data => displaySearchResult(data))
 
 }
+// searchPhone()
 
 const displaySearchResult = collector =>{
-  console.log(collector.length)
+  // console.log(collector.data.length);
+  const hem = collector.data.filter(m =>m.length > 20);
+  // const hem = collector.data.length;
+
+  
+  console.log(hem)
     const searchresult = document.getElementById('search-result');
     const dii = document.getElementById('diver')
     dii.textContent = ''
     searchresult.textContent = '';
     const {status} = collector;
+    // const amoutn =collector.data[20];
+    //  const amount = collector.data.filter(am=>am[0] <am[20]);
+    //  console.log(amount)
    
     if(status == false ){
     const diver = document.createElement('div');
@@ -30,14 +39,19 @@ const displaySearchResult = collector =>{
     dii.appendChild(diver)
     }
 
-    else{
+    else if(status==true){
+    
+ 
+  
    collector.data.forEach(info =>{  
-   
+  // console.log(info)
       const n =JSON.stringify(info.slug);
     
        const div = document.createElement('div');
        div.classList.add('col');
-     
+      //  const his = amoutn.filter(am=>am[1] <20);
+      //  console.log(his);
+    //  console.log(amoutn);
        div.innerHTML=`
        
           <div class="card w-75 h-100 mx-auto">
@@ -88,16 +102,16 @@ const loadPhoneDeatails = phoneId =>{
 /* With the Lenovo Phab 2, every commute is like a trip to the cinema. Experience true immersive multimedia with the stunning 6.4" HD screen and incredible Dolby Atmos® audio. Record amazing 360-degree multichannel sound with Dolby 5.1 Audio™ Capture. Or simply enhance any video or photo with the 13 MP fast-focus camera and augmented reality effects. */
 
 div.innerHTML =  `
-<div class="d-flex hell justify-content-center align-items-center mb-5">
+<div class="d-flex hell justify-content-center align-items-center mb-5 w-75 mx-auto">
 <div class = w-100>
-<img class="w-100 h-75" src="${detals.image}" class="card-img-top" style="width: 400px">
+<img class="w-75 h-75" src="${detals.image}" class="card-img-top" style="width: 400px">
 </div>
-<div class="card-body">
+<div class="card-body w-100 mx-auto">
 <h2 class="card-title">${detals.name}</h2>
-<p class="bold"> With the ${detals.name}.every commute is like a trip to the cinema. Experieance true immersive multimedia with stunning <b>${displaySize} </b> and  faster working for <b>${memory} </b>or we bring most value able thing that <b> ${chipSet}</b> chpip   </p>
-  <p class="card-text">${detals.releaseDate}</p>
+<p class="bold"> it's is the increadable price to by this devise. it's mostly value able futures is it have an ${sensors[0]},or ${sensors[1]}. it is the powerfull battery beside it's have ${sensors[3]}. Most value able is ${sensors[4]} or ${sensors[5]} so you need by this devise</p>
 
- <div class = "d-flex table-flex">
+ <div class = "d-flex table-flex w-100">
+ <h1 class ="text-center border">information and feuturs</h1>
  <div>
   <table class="table w-50  ">
   <thead>
@@ -142,18 +156,19 @@ div.innerHTML =  `
 </table>
 </div>
 <div>
+<h3 class="text-center">about more</h3>
 <table class="table w-50 b ">
   <thead>
     <tr>
       <th class="bg-primary text-white rounded" scope="row">USB</th>
-      <th class="bg-secondary text-white rounded" scope="col">${USB} </th>
+      <th class="bg-secondary text-white rounded ngc" scope="col">${USB} </th>
      
     </tr>
 </thead>
   <tbody>
     <tr>
-      <th class="bg-primary text-white rounded" scope="row">NFC</th>
-      <td class="bg-secondary text-white rounded">${NFC}</td>
+      <th class="bg-primary text-white rounded " scope="row">NFC</th>
+      <td class="bg-secondary text-white rounded ngc ">${NFC}</td>
      
     </tr>
     <tr>
@@ -161,11 +176,7 @@ div.innerHTML =  `
         <td class="bg-secondary text-white rounded">${Radio}</td>
     
     </tr>
-    <tr>
-      <th class="bg-primary text-white rounded" scope="row">Sensors</th>
-      <td class="bg-secondary text-white rounded">${sensors[0]} ${sensors[1]} ${sensors[2]} ${sensors[3]},${sensors[4]},${sensors[5]}</td>
-     
-    </tr>
+   
     
 
   </thead>
