@@ -17,32 +17,22 @@ fetch(url)
 }
 
 const displaySearchResult = collector =>{
-  // console.log(collector);
-  
+  console.log(collector.length)
     const searchresult = document.getElementById('search-result');
     const dii = document.getElementById('diver')
     dii.textContent = ''
     searchresult.textContent = '';
- 
-    console.log(collector)
-      
     const {status} = collector;
-    console.log(status)
-
-    if(status == false){
+   
+    if(status == false ){
     const diver = document.createElement('div');
     diver.innerHTML = `<h3 class="text-center text-danger mt-5"> there was something going to wrong</h3>`
     dii.appendChild(diver)
     }
 
     else{
-
-
-   collector.data.forEach(info =>{
-      //  console.log(info);
-     
-    
-    
+   collector.data.forEach(info =>{  
+   
       const n =JSON.stringify(info.slug);
     
        const div = document.createElement('div');
@@ -83,10 +73,13 @@ const loadPhoneDeatails = phoneId =>{
 
 
    const loadDisplayDetails =(detals) =>{
-    //    console.log(detals.image,detals.phone_name,detals.brand);
-    console.log(detals);
-    const {chipSet,displaySize,memory} = detals.mainFeatures;
-    // console.log(chipSet)
+    
+    // console.log(detals);
+    const {chipSet,displaySize,memory,storage} = detals.mainFeatures;
+    const{sensors} = detals.mainFeatures;
+    const {Bluetooth,GPS,NFC,Radio,USB,WLAN} = detals.others;
+    // console.log(Bluetooth)
+  
   
     const searchDetails = document.getElementById('search-details');
     searchDetails.textContent =''
@@ -95,7 +88,7 @@ const loadPhoneDeatails = phoneId =>{
 /* With the Lenovo Phab 2, every commute is like a trip to the cinema. Experience true immersive multimedia with the stunning 6.4" HD screen and incredible Dolby Atmos® audio. Record amazing 360-degree multichannel sound with Dolby 5.1 Audio™ Capture. Or simply enhance any video or photo with the 13 MP fast-focus camera and augmented reality effects. */
 
 div.innerHTML =  `
-<div class="d-flex justify-content-center align-items-center mb-5">
+<div class="d-flex hell justify-content-center align-items-center mb-5">
 <div class = w-100>
 <img class="w-100 h-75" src="${detals.image}" class="card-img-top" style="width: 400px">
 </div>
@@ -104,8 +97,9 @@ div.innerHTML =  `
 <p class="bold"> With the ${detals.name}.every commute is like a trip to the cinema. Experieance true immersive multimedia with stunning <b>${displaySize} </b> and  faster working for <b>${memory} </b>or we bring most value able thing that <b> ${chipSet}</b> chpip   </p>
   <p class="card-text">${detals.releaseDate}</p>
 
-
-  <table class="table w-50 ">
+ <div class = "d-flex table-flex">
+ <div>
+  <table class="table w-50  ">
   <thead>
     <tr>
       <th class="bg-primary text-white rounded" scope="row">display</th>
@@ -115,33 +109,69 @@ div.innerHTML =  `
 </thead>
   <tbody>
     <tr>
-      <th class="bg-primary text-white rounded" scope="row">Camera</th>
-      <td class="bg-secondary text-white rounded">${chipSet}</td>
+      <th class="bg-primary text-white rounded" scope="row">Capacity</th>
+      <td class="bg-secondary text-white rounded">${memory}</td>
      
     </tr>
     <tr>
-      <th class="bg-primary text-white rounded" scope="row">connectivity</th>
-      <td class="bg-secondary text-white rounded">${memory}</td>
+      <th class="bg-primary text-white rounded" scope="row">Storage</th>
+      <td class="bg-secondary text-white rounded">${storage}</td>
     
     </tr>
     <tr>
-      <th class="bg-primary text-white rounded" scope="row">battery</th>
+      <th class="bg-primary text-white rounded" scope="row">processor</th>
       <td class="bg-secondary text-white rounded">${chipSet}</td>
      
     </tr>
     <tr>
-      <th class="bg-primary text-white rounded" scope="row">storage</th>
-      <td class="bg-secondary text-white rounded">${memory}</td>
+      <th class="bg-primary text-white rounded" scope="row">WLAN</th>
+      <td class="bg-secondary text-white rounded">${WLAN}</td>
      
     </tr>
     <tr>
-      <th class="bg-primary text-white rounded" scope="row">procesor</th>
-      <td class="bg-secondary text-white rounded">${chipSet}</td>
+      <th class="bg-primary text-white rounded" scope="row">Bluetooth</th>
+      <td class="bg-secondary text-white rounded">${Bluetooth}</td>
+     
+    </tr>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">GPS</th>
+      <td class="bg-secondary text-white rounded">${GPS}</td>
      
     </tr>
   </thead>
 </table>
+</div>
+<div>
+<table class="table w-50 b ">
+  <thead>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">USB</th>
+      <th class="bg-secondary text-white rounded" scope="col">${USB} </th>
+     
+    </tr>
+</thead>
+  <tbody>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">NFC</th>
+      <td class="bg-secondary text-white rounded">${NFC}</td>
+     
+    </tr>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">Radio</th>
+        <td class="bg-secondary text-white rounded">${Radio}</td>
+    
+    </tr>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">Sensors</th>
+      <td class="bg-secondary text-white rounded">${sensors[0]} ${sensors[1]} ${sensors[2]} ${sensors[3]},${sensors[4]},${sensors[5]}</td>
+     
+    </tr>
+    
 
+  </thead>
+</table>
+
+</div>
 </div>
 
 ` 
