@@ -87,19 +87,23 @@ const loadPhoneDeatails = phoneId =>{
 
 
    const loadDisplayDetails =(detals) =>{
+     
     
-    // console.log(detals);
+    console.log(detals);
     const {chipSet,displaySize,memory,storage} = detals.mainFeatures;
     const{sensors} = detals.mainFeatures;
     const {Bluetooth,GPS,NFC,Radio,USB,WLAN} = detals.others;
     // console.log(Bluetooth)
+    const relase = detals.releaseDate;
+    console.log(relase)
+  
   
   
     const searchDetails = document.getElementById('search-details');
     searchDetails.textContent =''
     const div = document.createElement('div');
     div.classList.add('card');
-/* With the Lenovo Phab 2, every commute is like a trip to the cinema. Experience true immersive multimedia with the stunning 6.4" HD screen and incredible Dolby Atmos® audio. Record amazing 360-degree multichannel sound with Dolby 5.1 Audio™ Capture. Or simply enhance any video or photo with the 13 MP fast-focus camera and augmented reality effects. */
+
 
 div.innerHTML =  `
 <div class="d-flex hell justify-content-center align-items-center mb-5 w-75 mx-auto">
@@ -111,7 +115,7 @@ div.innerHTML =  `
 <p class="bold"> it's is the increadable price to by this devise. it's mostly value able futures is it have an ${sensors[0]},or ${sensors[1]}. it is the powerfull battery beside it's have ${sensors[3]}. Most value able is ${sensors[4]} or ${sensors[5]} so you need by this devise</p>
 
  <div class = "d-flex table-flex w-100">
- <h1 class ="text-center border">information and feuturs</h1>
+ <h1 class ="text-center ">information and feuturs</h1>
  <div>
   <table class="table w-50  ">
   <thead>
@@ -165,7 +169,7 @@ div.innerHTML =  `
      
     </tr>
 </thead>
-  <tbody>
+  <tbody id = "relese-added">
     <tr>
       <th class="bg-primary text-white rounded " scope="row">NFC</th>
       <td class="bg-secondary text-white rounded ngc ">${NFC}</td>
@@ -186,8 +190,33 @@ div.innerHTML =  `
 </div>
 
 ` 
-      searchDetails.appendChild(div);
-   
+searchDetails.appendChild(div);
+const relseer = document.getElementById('relese-added')
+if(relase==''){
+  const h1 = document.createElement('div')
+  h1.classList.add('rahim')
+  h1.innerHTML = `  
+  <h5 class="text-white bg-primary w-50" >Relese date</h5>
+  <h5 class="bg-danger  text-white rounded w-100">no relese date found</h5>
+
+`
+relseer.appendChild(h1)
+
+}
+else{
+  const h1 = document.createElement('div')
+  h1.classList.add('rahim')
+  
+  h1.innerHTML = ` 
+  <h5 class="text-white bg-primary w-50" >Relese date</h5>
+    <h5 class="bg-secondary  text-white rounded w-100">${detals.releaseDate}</h5>
+
+`
+relseer.appendChild(h1)
+}
+
+
+
 
    }
    
