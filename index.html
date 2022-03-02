@@ -10,7 +10,10 @@
     <!-- css link added -->
     <link rel="stylesheet" href="style.css">
 <style>
+#spinners{
+  display: none;
 
+}
 </style>
 </head>
 <body>
@@ -22,6 +25,7 @@
     <div class="input-group mb-3 w-50 mx-auto mt-5">
       <input id="search-field" type="text" class="form-control" placeholder="search the divese that you want" aria-label="Recipient's username" aria-describedby="button-addon2">
       <button onclick="searchPhone()" class="btn btn-outline-secondary bg-success text-white " type="button" id="button-search">search</button>
+     
     </div>
 
    </header>
@@ -38,6 +42,11 @@
         <div id="diver">
 
         </div>
+        <div id="spinners" class="text-center"><div class="spinner-border" role="status">
+          <span class="visually-hidden"><div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>...</span>
+        </div></div>
       <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
         
         

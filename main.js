@@ -1,5 +1,13 @@
 
+const toggle = displayStyle =>{
+  if(displayStyle == true){
+  document.getElementById('spinners').style.display = 'block';
+}
+   else if(displayStyle == false){
+  document.getElementById('spinners').style.display = 'none';
+}
 
+}
 // start with input and search btn 
 
 const searchPhone = ()=>{
@@ -10,6 +18,7 @@ const searchPhone = ()=>{
 searchField.value= '';
 
 
+toggle(true)
 const url= `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
 fetch(url)
 .then(res => res.json())
@@ -71,6 +80,7 @@ const displaySearchResult = collector =>{
      
        `
        searchresult.appendChild(div)
+       toggle(false)
      
    })
  
