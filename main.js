@@ -119,7 +119,7 @@ div.innerHTML =  `
 <div class="card-body w-100 mx-auto">
 <h2 class="card-title">${detals.name}</h2>
 <p class="bold"> it's is the increadable price to by this devise. it's mostly value able futures is it have an ${sensors[0]},or ${sensors[1]}. it is the powerfull battery beside it's have ${sensors[3]}. Most value able is ${sensors[4]} or ${sensors[5]} so you need by this devise</p>
-
+<button  type="button" class="btn btn-success px-4">Order Now</button>
  <div class = "d-flex table-flex w-100">
  <h1 class ="text-center ">information and feuturs</h1>
  <div>
