@@ -94,43 +94,57 @@ const loadPhoneDeatails = phoneId =>{
     div.classList.add('card');
 /* With the Lenovo Phab 2, every commute is like a trip to the cinema. Experience true immersive multimedia with the stunning 6.4" HD screen and incredible Dolby Atmos® audio. Record amazing 360-degree multichannel sound with Dolby 5.1 Audio™ Capture. Or simply enhance any video or photo with the 13 MP fast-focus camera and augmented reality effects. */
 
-      div.innerHTML =  `
-      <div class="d-flex justify-content-center align-items-center mb-5">
-      <div class = w-100>
-      <img class="w-100 h-75" src="${detals.image}" class="card-img-top" style="width: 400px">
-      </div>
-      <div class="card-body">
-      <h2 class="card-title">${detals.name}</h2>
-      <p class="bold"> With the ${detals.name}.every commute is like a trip to the cinema. Experieance true immersive multimedia with stunning <b>${displaySize} </b> and  faster working for <b>${memory} </b>or we bring most value able thing that <b> ${chipSet}</b> chpip   </p>
+div.innerHTML =  `
+<div class="d-flex justify-content-center align-items-center mb-5">
+<div class = w-100>
+<img class="w-100 h-75" src="${detals.image}" class="card-img-top" style="width: 400px">
+</div>
+<div class="card-body">
+<h2 class="card-title">${detals.name}</h2>
+<p class="bold"> With the ${detals.name}.every commute is like a trip to the cinema. Experieance true immersive multimedia with stunning <b>${displaySize} </b> and  faster working for <b>${memory} </b>or we bring most value able thing that <b> ${chipSet}</b> chpip   </p>
+  <p class="card-text">${detals.releaseDate}</p>
 
-        <p class="card-text">${detals.releaseDate}</p>
 
-        <div class = "d-flex border  align-items-center">
-      <div class="m-0">
-      <h3 class = " bg-primary px-5 py-2 text-white rounded2">display</h3>
-      <h3  class = " bg-primary px-5 py-2 text-white rounded">camera</h3>
-      <h3  class = " bg-primary px-5 py-2 text-white rounded">connectivity</h3>
-      <h3  class = "  bg-primary px-5 py-2 text-white rounded">battery </h3>
-      <h3  class =" bg-primary px-5 py-2 text-white rounded">storage </h3>
-      <h3 class =" bg-primary px-5 py-2 text-white rounded">processore </h3>
-      </div> 
-      
-      <div class= "hello">
-      <h3 class = " bg-secondary px-5 py-2  rounded">${displaySize}</h3>
-      <h3  class = " bg-secondary px-5 py-2  rounded">camera</h3>
-      <h3  class = " bg-secondary px-5 py-2  rounded">${memory}</h3>
-      <h3  class = "  bg-secondary px-5 py-2  rounded">${chipSet} </h3>
-      <h3  class =" bg-secondary px-5 py-2  rounded">${memory} </h3>
-      <h3 class =" bg-secondary px-5 py-2 rounded">${chipSet} </h3>
-      </div>
-      </div>
-      </div>
+  <table class="table w-50 ">
+  <thead>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">display</th>
+      <th class="bg-secondary text-white rounded" scope="col">${displaySize} </th>
+     
+    </tr>
+</thead>
+  <tbody>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">Camera</th>
+      <td class="bg-secondary text-white rounded">${chipSet}</td>
+     
+    </tr>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">connectivity</th>
+      <td class="bg-secondary text-white rounded">${memory}</td>
+    
+    </tr>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">battery</th>
+      <td class="bg-secondary text-white rounded">${chipSet}</td>
+     
+    </tr>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">storage</th>
+      <td class="bg-secondary text-white rounded">${memory}</td>
+     
+    </tr>
+    <tr>
+      <th class="bg-primary text-white rounded" scope="row">procesor</th>
+      <td class="bg-secondary text-white rounded">${chipSet}</td>
+     
+    </tr>
+  </thead>
+</table>
 
-      
-      </div>
+</div>
 
-      
-      ` 
+` 
       searchDetails.appendChild(div);
    
 
