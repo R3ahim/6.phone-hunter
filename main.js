@@ -15,12 +15,17 @@ fetch(url)
 .then(res => res.json())
 .then(data => displaySearchResult(data))
 
+
 }
+
 // searchPhone()
 
 const displaySearchResult = collector =>{
   // console.log(collector.data.length);
-
+  
+  
+   
+  console.log(collector.data)
   
     const searchresult = document.getElementById('search-result');
     const divRelease = document.getElementById('diver')
@@ -43,7 +48,10 @@ const displaySearchResult = collector =>{
  
   
    collector.data.forEach(info =>{  
-  // console.log(info)
+  console.log(info)
+  // for(const or in info){
+  //   // console.log(or)
+  // }
       const idConverter =JSON.stringify(info.slug);
     
        const div = document.createElement('div');
@@ -82,7 +90,8 @@ const loadPhoneDeatails = phoneId =>{
    
    }
 
-
+  
+  //  display deats part 
    const loadDisplayDetails =(detals) =>{
      
     
