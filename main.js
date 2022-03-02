@@ -39,7 +39,7 @@ const displaySearchResult = collector =>{
    
  
   
-    diver.innerHTML = `<h3 class="text-center text-danger mt-5"> there was something going to wrong</h3>`
+    diver.innerHTML = `<h3 class="text-center text-danger mt-5"> there is now result found</h3>`
     divRelease.appendChild(diver)
     }
 
