@@ -1,6 +1,6 @@
 
 
-// start with search btn 
+// start with input and search btn 
 
 const searchPhone = ()=>{
     const searchField = document.getElementById("search-field");
@@ -8,6 +8,7 @@ const searchPhone = ()=>{
 //    console.log(searchText);
 //    clear field 
 searchField.value= '';
+
 
 const url= `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
 fetch(url)
@@ -19,24 +20,22 @@ fetch(url)
 
 const displaySearchResult = collector =>{
   // console.log(collector.data.length);
-  const hem = collector.data.filter(m =>m.length > 20);
-  // const hem = collector.data.length;
 
   
-  console.log(hem)
     const searchresult = document.getElementById('search-result');
-    const dii = document.getElementById('diver')
-    dii.textContent = ''
+    const divRelease = document.getElementById('diver')
+    divRelease.textContent = ''
     searchresult.textContent = '';
     const {status} = collector;
-    // const amoutn =collector.data[20];
-    //  const amount = collector.data.filter(am=>am[0] <am[20]);
-    //  console.log(amount)
+  
    
     if(status == false ){
     const diver = document.createElement('div');
+   
+ 
+  
     diver.innerHTML = `<h3 class="text-center text-danger mt-5"> there was something going to wrong</h3>`
-    dii.appendChild(diver)
+    divRelease.appendChild(diver)
     }
 
     else if(status==true){
@@ -45,13 +44,11 @@ const displaySearchResult = collector =>{
   
    collector.data.forEach(info =>{  
   // console.log(info)
-      const n =JSON.stringify(info.slug);
+      const idConverter =JSON.stringify(info.slug);
     
        const div = document.createElement('div');
        div.classList.add('col');
-      //  const his = amoutn.filter(am=>am[1] <20);
-      //  console.log(his);
-    //  console.log(amoutn);
+    
        div.innerHTML=`
        
           <div class="card w-75 h-100 mx-auto">
@@ -59,7 +56,7 @@ const displaySearchResult = collector =>{
             <div class="card-body">
               <h3 class="card-title">${info.phone_name}</h3>
               <h4 class= "card-title"> ${info.brand}</h4>
-              <button onclick='loadPhoneDeatails(${n})' type="button" class="btn btn-secondary">click me</button>
+              <button onclick='loadPhoneDeatails(${idConverter})' type="button" class="btn btn-secondary">Buy Now</button>
 
             </div>
           </div>
@@ -89,24 +86,24 @@ const loadPhoneDeatails = phoneId =>{
    const loadDisplayDetails =(detals) =>{
      
     
-    console.log(detals);
+    // console.log(detals);
     const {chipSet,displaySize,memory,storage} = detals.mainFeatures;
     const{sensors} = detals.mainFeatures;
     const {Bluetooth,GPS,NFC,Radio,USB,WLAN} = detals.others;
     // console.log(Bluetooth)
     const relase = detals.releaseDate;
-    console.log(relase)
+    // console.log(relase)
   
-  
+
   
     const searchDetails = document.getElementById('search-details');
     searchDetails.textContent =''
     const div = document.createElement('div');
     div.classList.add('card');
-
+    
 
 div.innerHTML =  `
-<div class="d-flex hell justify-content-center align-items-center mb-5 w-75 mx-auto">
+<div class="d-flex main-contianer justify-content-center align-items-center mb-5 w-75 mx-auto">
 <div class = w-100>
 <img class="w-75 h-75" src="${detals.image}" class="card-img-top" style="width: 400px">
 </div>
@@ -165,14 +162,14 @@ div.innerHTML =  `
   <thead>
     <tr>
       <th class="bg-primary text-white rounded" scope="row">USB</th>
-      <th class="bg-secondary text-white rounded ngc" scope="col">${USB} </th>
+      <th class="bg-secondary text-white rounded relese-with " scope="col">${USB} </th>
      
     </tr>
 </thead>
   <tbody id = "relese-added">
     <tr>
       <th class="bg-primary text-white rounded " scope="row">NFC</th>
-      <td class="bg-secondary text-white rounded ngc ">${NFC}</td>
+      <td class="bg-secondary text-white rounded relese-with ">${NFC}</td>
      
     </tr>
     <tr>
@@ -193,26 +190,26 @@ div.innerHTML =  `
 searchDetails.appendChild(div);
 const relseer = document.getElementById('relese-added')
 if(relase==''){
-  const h1 = document.createElement('div')
-  h1.classList.add('rahim')
-  h1.innerHTML = `  
+  const div = document.createElement('div')
+  div.classList.add('released-date')
+  div.innerHTML = `  
   <h5 class="text-white bg-primary w-50" >Relese date</h5>
   <h5 class="bg-danger  text-white rounded w-100">no relese date found</h5>
 
 `
-relseer.appendChild(h1)
+relseer.appendChild(div)
 
 }
 else{
-  const h1 = document.createElement('div')
-  h1.classList.add('rahim')
+  const div = document.createElement('div')
+  div.classList.add('released-date')
   
-  h1.innerHTML = ` 
+  div.innerHTML = ` 
   <h5 class="text-white bg-primary w-50" >Relese date</h5>
     <h5 class="bg-secondary  text-white rounded w-100">${detals.releaseDate}</h5>
 
 `
-relseer.appendChild(h1)
+relseer.appendChild(div)
 }
 
 

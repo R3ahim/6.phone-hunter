@@ -1,0 +1,74 @@
+
+
+    .heder{
+    
+     background-color: black;
+     height: 300px;
+     
+    
+    }
+    .g{
+     width: 500px;
+     height: 59px;
+     overflow: scroll;
+    }
+    .released-date{
+
+        display: flex;
+        
+        }
+    @media only screen 
+    and (min-device-width : 1200px) 
+    and (max-device-width : 2000px){ 
+     .table-flex{
+     display: flex;
+     flex-direction: column;
+     height: 500px;
+     width: 600px ;
+     overflow: scroll;
+     
+    }
+     
+    }
+    
+    .table{
+     width: 500px !important;
+     margin: 20px;
+    }
+    @media only screen and (max-width:669px) {
+     *{
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+     }
+     .card{
+       width: 100% !important;
+     }
+     .heder{
+       width: 100%;
+     }
+    .main-contianer{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+    }
+    .table-flex{
+     display: flex;
+     flex-direction: column;
+     height: 400px;
+     /* width:  !important; */
+     overflow: scroll;
+    }
+    .table{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+      /* margin-left: 40px; */
+      width: 100% !important;
+    }
+    .relese-with {
+     width: 400px !important;
+    }
+    }
